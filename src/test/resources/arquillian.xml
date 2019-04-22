@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arquillian xmlns="http://jboss.com/arquillian"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+	<extension qualifier="webdriver">
+		<property name="browser">chrome</property>
+		<property name="chromeDriverBinary">src\test\resources\drivers\chromedriver.exe</property>
+		<property name="chromeArguments">--start-maximized</property>
+		<property name="chromeAcceptInsecureCerts">acceptInsecureCerts</property>
+		<property name="chromePageLoadStrategy">30</property>
+		<property name="chromeExperimentalOption">
+			{
+			"prefs": {
+			"download.default_directory":
+			"/usr/local/downloads/"
+			}
+			}
+		</property>
+		<property name="chromePrintOptions">true</property>
+	</extension>
+	>
+	<extension qualifier="graphene">
+		<property name="waitGuiInterval">5</property>
+		<property name="waitAjaxInterval">10</property>
+		<property name="waitModelInterval">30</property>
+		<property name="waitGuardInterval">30</property>
+	</extension>
+
+	<extension qualifier="screenshooter">
+		<property name="takeOnEveryAction">True</property>
+		<property name="takeBeforeTest">False</property>
+		<property name="takeAfterTest">True</property>
+		<property name="takeWhenTestFailed">True</property>
+		<property name="rootDir">src\test\resources\screenShots</property>
+		<property name="screenshotType">PNG</property>
+	</extension>
+
+	<extension qualifier="reporter">
+		<property name="report">html</property>
+		<property name="reportAfterEvery">class</property>
+		<property name="title">"Test Summary"</property>
+		<property name="takeOnEveryAction">True</property>
+	</extension>
+</arquillian>
